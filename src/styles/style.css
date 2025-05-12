@@ -1,0 +1,133 @@
+
+/* پس‌زمینه کلی صفحه */
+.backgroundColorAll {
+  background-color: #cdc6b6;
+}
+/* دکمه استارت پروژه */
+.backgroundButton {
+  position: relative;
+  overflow: hidden;
+  background-color: #3F3c37;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+/* انیمیشن لرزش دکمه */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-2px); }
+  40%, 80% { transform: translateX(2px); }
+}
+/* پس‌زمینه نارنجی متحرک دکمه */
+.backgroundButton::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  transition: bottom 0.4s ease;
+  z-index: 0;
+}
+/* متن دکمه */
+.btnSpan {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+/* حالت هاور دکمه - لرزش */
+.backgroundButton:hover {
+  animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+}
+/* حالت هاور دکمه - نمایش پس‌زمینه نارنجی */
+.backgroundButton:hover::after {
+  bottom: 0;
+}
+/* حالت هاور دکمه - تغییر رنگ متن */
+.backgroundButton:hover .btnSpan {
+  display: inline-block;
+  color: black;
+}
+/* کانتینر تصویر هیرو */
+#hero-container {
+  position: relative;
+  display: inline-block;
+}
+/* تصویر هیرو */
+#hero-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* فاصله بین حروف */
+.trackingSelf {
+  letter-spacing: 0.6em;
+}
+/* /////////////////////////////////////////////////////////////////// */  
+/* <!-- سلام اول سایت  --> */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+}
+#splash.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+#splash p {
+  font-size: 4rem;
+  color: #ffffff;
+  transition: opacity 0.5s;
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+.slide-up {
+  animation: slideUp 1s forwards;
+}
+/* ///////////////////////fotter/////////////////////////// */
+/* فقط انیمیشن برای کلاس animate-scroll-moving-fotter */
+@keyframes loop-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-200%); }
+}
+
+/* این کلاس توسط JS اضافه/حذف می‌شود */
+.animate-scroll-moving-fotter {
+  animation: loop-scroll 5s linear infinite;
+}
+
+/* کانتینر گرید (پیش‌فرض مخفی) */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 ستون */
+  grid-template-rows: repeat(2, auto); /* 2 ردیف */
+  gap: 10px; /* فاصله بین آیتم‌ها */
+  margin-top: 20px;
+  opacity: 0; /* در ابتدا مخفی است */
+  height: 0; /* ارتفاع اولیه صفر */
+  overflow: hidden; /* پنهان کردن محتوای اضافی */
+  transition: opacity 0.4s ease, height 0.4s ease; /* انیمیشن نمایش */
+  padding: 0 20px; /* فضای داخلی */
+  box-sizing: border-box;
+}
+
+/* زمانی که آکاردئون باز است */
+.project-item.open .grid-container {
+  opacity: 1; /* نمایش گرید */
+  height: 100%; /* تنظیم ارتفاع گرید */
+}
