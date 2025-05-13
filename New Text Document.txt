@@ -1,1 +1,14 @@
 npx tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch 
+
+
+Fetch origin    بروز شدن کد 
+Pull origin        اگه بروز رسانی داشته باشه 
+
+| مرحله | کار                           |
+| ----- | ----------------------------- |
+| 1     | تغییر در VS Code              |
+| 2     | رفتن به GitHub Desktop        |
+| 3     | دیدن فایل‌های تغییر کرده      |
+| 4     | نوشتن پیام کامیت و زدن Commit |
+| 5     | زدن Push origin               |
+ذ

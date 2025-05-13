@@ -111,23 +111,29 @@
   animation: loop-scroll 5s linear infinite;
 }
 
-/* کانتینر گرید (پیش‌فرض مخفی) */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 ستون */
-  grid-template-rows: repeat(2, auto); /* 2 ردیف */
-  gap: 10px; /* فاصله بین آیتم‌ها */
-  margin-top: 20px;
-  opacity: 0; /* در ابتدا مخفی است */
-  height: 0; /* ارتفاع اولیه صفر */
-  overflow: hidden; /* پنهان کردن محتوای اضافی */
-  transition: opacity 0.4s ease, height 0.4s ease; /* انیمیشن نمایش */
-  padding: 0 20px; /* فضای داخلی */
-  box-sizing: border-box;
+
+/* ////////project */
+.project-item {
+  @apply relative;
 }
 
-/* زمانی که آکاردئون باز است */
-.project-item.open .grid-container {
-  opacity: 1; /* نمایش گرید */
-  height: 100%; /* تنظیم ارتفاع گرید */
+.project-extra {
+  @apply max-h-0 overflow-hidden transition-all duration-500 ease-in-out;
+}
+
+.project-item:hover .bg-top,
+.project-item:hover .bg-bottom {
+  height: 100%;
+}
+
+.project-item:hover .main-text {
+  @apply opacity-0;
+}
+
+.project-item:hover .project-description {
+  @apply opacity-100;
+}
+
+.project-item.active .project-extra {
+  @apply max-h-48;
 }
