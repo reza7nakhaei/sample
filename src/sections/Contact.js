@@ -1,36 +1,3 @@
-(() => {
-  const content   = document.querySelector("#scroll-content");
-  let   lastY     = window.scrollY;
-  let   targetX   = 0;
-  let   currentX  = 0;
-  const speed     = 0.1;
-  let   maxScroll = content.scrollWidth - content.clientWidth;
-
-  // به‌روزرسانی maxScroll هنگام Resize
-  window.addEventListener('resize', () => {
-    maxScroll = content.scrollWidth - content.clientWidth;
-  });
-
-  // روی اسکرول عمودی، هدف افقی را تغییر بده
-  window.addEventListener('scroll', () => {
-    const deltaY = window.scrollY - lastY;
-    lastY = window.scrollY;
-    targetX += deltaY;
-    // محدودسازی بین 0 و maxScroll
-    targetX = Math.max(0, Math.min(targetX, maxScroll));
-  });
-
-  // انیمیشن نرم به سمت targetX
-  function animate() {
-    currentX += (targetX - currentX) * speed;
-    content.style.transform = `translateX(-${currentX}px)`;
-    requestAnimationFrame(animate);
-  }
-
-  requestAnimationFrame(animate);
-})();
-
-
 
 ///////////////////////////////
   document.querySelectorAll('.magnetic').forEach(el => {
@@ -63,3 +30,32 @@
     });
   });
 
+
+  (() => {
+    let content = document.querySelector("#scroll-content");  // فقط یک عنصر انتخاب می‌کنیم
+    let lastScrollY = window.scrollY;
+    let targetX = 150;
+    let currentX = 0;
+    let speed = 0.1;  // سرعت حرکت افقی
+    let maxScroll = 1000;  // حداکثر مقدار برای حرکت افقی، می‌توانید تغییر دهید
+  
+    // هنگام اسکرول، تغییرات موقعیت افقی را محاسبه می‌کنیم
+    window.addEventListener('scroll', () => {
+      let deltaY = window.scrollY - lastScrollY;
+      lastScrollY = window.scrollY;
+      targetX += deltaY;  // تغییر موقعیت هدف
+      // محدود کردن حرکت افقی
+      if (targetX > maxScroll) targetX = maxScroll;
+      if (targetX < 0) targetX = 0;
+    });
+  
+    function animate() {
+      currentX += (targetX - currentX) * speed;  // به‌روزرسانی موقعیت فعلی به‌طور نرم
+      content.style.transform = `translateX(-${currentX}px)`;  // اعمال تغییر به عنصر
+      requestAnimationFrame(animate);  // ادامه انیمیشن
+    }
+  
+    animate();  // شروع انیمیشن
+  })();
+
+  

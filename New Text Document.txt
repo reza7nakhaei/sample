@@ -12,3 +12,6 @@ Pull origin        اگه بروز رسانی داشته باشه
 | 4     | نوشتن پیام کامیت و زدن Commit |
 | 5     | زدن Push origin               |
 ذ
+
+ sm:bg-red-600 md:bg-yellow-400 lg:bg-pink-500 xl:bg-purple-700 2xl:bg-green-600
+ sm:bg-red-600 md:bg-yellow-400 lg:bg-pink-500 xl:bg-purple-700 2xl:bg-green-600

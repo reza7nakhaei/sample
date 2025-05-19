@@ -1,8 +1,28 @@
 
 /* پس‌زمینه کلی صفحه */
-.backgroundColorAll {
+/* .backgroundColorAll {
   background-color: #cdc6b6;
+} */
+
+.backgroundColorAll {
+  background-color: #fcfcf3;
 }
+.backgroundColorAllRed {
+  background-color: #d13318; 
+}
+.backgroundColorAllbrown {
+  background-color: #3f3b37;
+}
+.backgroundColorAllgray {
+  background-color: rgb(179, 172, 158);
+}
+
+
+
+span {
+  display: inline-block;
+}
+
 /* دکمه استارت پروژه */
 .backgroundButton {
   position: relative;
@@ -136,4 +156,23 @@
 
 .project-item.active .project-extra {
   @apply max-h-48;
+}
+
+/* //////////////////////// */
+.animated-lines {
+  direction: rtl; /* چون زبانت راست‌چینه */
+}
+
+.animated-line {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+  margin: 20px 0;
+}
+
+/* وقتی در صفحه دیده شد */
+.animated-line.show {
+  opacity: 1;
+  transform: translateX(0);
 }

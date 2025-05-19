@@ -1,6 +1,8 @@
 // src/global.js
 // مثال: قرار دادن window.global شبیه webpack
 // <!-- سلام اول سایت  -->
+
+
 window.global ||= window;
 const greetings = [
   { text: "hello", lang: "en" },
@@ -70,7 +72,12 @@ window.addEventListener('load', () => {
     mainContent.style.display = 'block';
   }
 });
+////////////////////////////
 
+window.scrollTo({
+  top: document.querySelector("#contact").offsetTop,
+  behavior: "smooth"
+});
 
 // نقطه نارنجی موس////////////////////////////////////////////
 const followerCursor = document.getElementById('cursor-follower');
