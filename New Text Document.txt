@@ -1,0 +1,18 @@
+npx tailwindcss -i ./styles/input.css -o ./styles/output.css --watch 
+npx tailwindcss -i ./styles/input.css -o ./styles/output.css --minify
+
+
+Fetch origin    بروز شدن کد 
+Pull origin        اگه بروز رسانی داشته باشه 
+
+| مرحله | کار                           |
+| ----- | ----------------------------- |
+| 1     | تغییر در VS Code              |
+| 2     | رفتن به GitHub Desktop        |
+| 3     | دیدن فایل‌های تغییر کرده      |
+| 4     | نوشتن پیام کامیت و زدن Commit |
+| 5     | زدن Push origin               |
+ذ
+
+ sm:bg-red-600 md:bg-yellow-400 lg:bg-pink-500 xl:bg-purple-700 2xl:bg-green-600
+ sm:bg-red-600 md:bg-yellow-400 lg:bg-pink-500 xl:bg-purple-700 2xl:bg-green-600
