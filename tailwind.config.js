@@ -2,12 +2,14 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ["./public/**/*.html", "./src/js/**/*.js"],
+  content: [
+    './index.html',
+    './sections/**/*.{js,jsx}',
+    './styles/**/*.{css,js}'
+  ],
   theme: {
     extend: {
-      borderWidth: {
-        'pro': '0.5px', // کلاس border-pro می‌سازه
-      },
+      borderWidth: { pro: '0.5px' },
       scale: {
         '300': '3',
         'y-300': '3',
@@ -30,7 +32,6 @@ module.exports = {
         '25': '0.25',
         '0': '0',
       },
-      
       fontFamily: {
         oswald: ['Oswald', ...defaultTheme.fontFamily.sans],
       },

@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "watch":   "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch"
+    "watch": "tailwindcss -i ./src/styles/input.css -o ./src/styles/output.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -20,4 +20,3 @@
     "vite": "^6.3.5"
   }
 }
-
