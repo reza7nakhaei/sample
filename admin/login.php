@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            header("Location: admin_dashboard.php");
+            header("Location: admin_portfolio.php");
             exit;
         } else {
             $error = "رمز عبور اشتباه است";
