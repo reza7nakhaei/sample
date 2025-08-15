@@ -3,9 +3,8 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
-    './index.html',
-    './sections/**/*.{js,jsx}',
-    './styles/**/*.{css,js}'
+    './sample/**/*.{html,php,js,jsx}', // همه فایل‌های داخل sample
+    './**/*.{html,php}',               // همه HTML/PHP ها در ریشه یا زیرپوشه‌ها
   ],
   theme: {
     extend: {
@@ -38,4 +37,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

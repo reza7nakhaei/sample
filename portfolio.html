@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>رزومه – گوهر حسین‌زاده</title>
+    <link rel="stylesheet" href="./styles/output.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        .active-tab::after {
+            width: 100% !important;
+        }
+
+        .tab-btn.active::after {
+            width: 100% !important;
+        }
+        /* استایل گالری */
+  .gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .gallery-item img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 10px;
+  }
+  .gallery-item:hover .overlay {
+    opacity: 1;
+  }
+
+/* ========================
+   CSS: Smooth Transition لایت‌باکس حرفه‌ای با overlay قابل کلیک
+   ======================== */
+
+/* Hover overlay برای تصاویر */
+.gallery-item .overlay {
+  pointer-events: none; /* اجازه کلیک روی overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Scale effect روی تصاویر */
+.lightbox-img {
+  transition: transform 0.3s ease;
+}
+.lightbox-img:hover {
+  transform: scale(1.05);
+}
+
+/* دکمه‌های لایت‌باکس */
+#lightbox-prev, #lightbox-next {
+  cursor: pointer;
+  font-size: 1.25rem;
+  user-select: none;
+}
+
+#lightbox-close {
+  cursor: pointer;
+  font-size: 1.25rem;
+  user-select: none;
+}
+
+/* افکت fade برای لایت‌باکس */
+#lightbox {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: all;
+}
+#lightbox.opacity-100 {
+  opacity: 1;
+}
+
+/* انیمیشن Smooth تغییر تصویر */
+#lightbox-img {
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+#lightbox-img.opacity-0 {
+  opacity: 0;
+}
+
+  
+    </style>
+
+</head>
+
+<body class="bg-gray-100">
+
+
+    <!-- هدر -->
+    <header class="flex items-center justify-between border-b border-gray-300 p-4 bg-white">
+        <!-- سمت چپ: نام سایت -->
+        <div class="font-bold text-lg">MySite</div>
+        <!-- وسط: تب‌ها -->
+        <div id="tabs" class="flex gap-2">
+            <button
+                class="tab-btn relative font-bold text-black px-2 py-1 after:content-[''] after:absolute after:right-0 after:bottom-0 after:h-[2px] after:bg-black after:w-0 hover:after:w-full after:transition-[width] after:duration-300 active"
+                data-title="Logo">Logo</button>
+            <button
+                class="tab-btn relative font-bold text-black px-2 py-1 after:content-[''] after:absolute after:right-0 after:bottom-0 after:h-[2px] after:bg-black after:w-0 hover:after:w-full after:transition-[width] after:duration-300"
+                data-title="Social media">Social media</button>
+            <button
+                class="tab-btn relative font-bold text-black px-2 py-1 after:content-[''] after:absolute after:right-0 after:bottom-0 after:h-[2px] after:bg-black after:w-0 hover:after:w-full after:transition-[width] after:duration-300"
+                data-title="Banner and Billboard">Banner and Billboard</button>
+            <button
+                class="tab-btn relative font-bold text-black px-2 py-1 after:content-[''] after:absolute after:right-0 after:bottom-0 after:h-[2px] after:bg-black after:w-0 hover:after:w-full after:transition-[width] after:duration-300"
+                data-title="Ui / UX design">Ui / UX design</button>
+            <button
+                class="tab-btn relative font-bold text-black px-2 py-1 after:content-[''] after:absolute after:right-0 after:bottom-0 after:h-[2px] after:bg-black after:w-0 hover:after:w-full after:transition-[width] after:duration-300"
+                data-title="Office set">Office set</button>
+            <button
+                class="tab-btn relative font-bold text-black px-2 py-1 after:content-[''] after:absolute after:right-0 after:bottom-0 after:h-[2px] after:bg-black after:w-0 hover:after:w-full after:transition-[width] after:duration-300"
+                data-title="Poster">Poster</button>
+            <button
+                class="tab-btn relative font-bold text-black px-2 py-1 after:content-[''] after:absolute after:right-0 after:bottom-0 after:h-[2px] after:bg-black after:w-0 hover:after:w-full after:transition-[width] after:duration-300"
+                data-title="Packaging">Packaging</button>
+        </div>
+        <!-- سمت راست: دکمه برگشت -->
+        <button class="font-bold text-black px-2 py-1">back</button>
+    </header>
+
+    <!-- نام نمونه‌کار انتخاب شده -->
+    <div id="selected-title" class="border-b border-gray-300 p-4 text-2xl font-bold text-left">Logo</div>
+
+   <!-- ========================
+     HTML: گالری و لایت‌باکس حرفه‌ای با انیمیشن Smooth
+     ======================== -->
+
+<!-- ========================
+     HTML: گالری و لایت‌باکس حرفه‌ای با overlay قابل کلیک
+     ======================== -->
+
+<!-- گالری کاشی (Masonry) -->
+<main class="p-4 columns-5 gap-2 [column-fill:_balance]">
+  <div class="gallery-item relative cursor-pointer">
+    <img src="./public/assets/img/01.webp" class="mb-2 w-full break-inside-avoid lightbox-img" data-title="عکس شماره 1" />
+    <div class="overlay absolute bottom-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded">عکس شماره 1</div>
+  </div>
+  <div class="gallery-item relative cursor-pointer">
+    <img src="./public/assets/img/02.webp" class="mb-2 w-full break-inside-avoid lightbox-img" data-title="عکس شماره 2" />
+    <div class="overlay absolute bottom-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded">عکس شماره 2</div>
+  </div>
+  <!-- تصاویر بیشتر مشابه اضافه شود -->
+</main>
+
+
+
+
+
+    <div id="cursor-follower"
+        class="fixed top-0 left-0 w-2 h-2 bg-orange-500 rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999]">
+    </div>
+
+
+    <script type="module" src="./sections/portfolio.js"></script>
+
+
+
+</body>
+
+
+</html>

@@ -7,80 +7,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.getElementById("lightbox-next");
   const prevBtn = document.getElementById("lightbox-prev");
 
-  let activeItem = null;
   let currentGroup = [];
   let currentIndex = 0;
   const images = [];
 
-  // Hover and click behavior for project items
+  // Hover behavior for project items
   projectItems.forEach((item) => {
     const mainText = item.querySelector(".main-text");
     const description = item.querySelector(".project-description");
     const bgTop = item.querySelector(".bg-top");
     const bgBottom = item.querySelector(".bg-bottom");
-    const projectExtra = item.querySelector(".project-extra");
 
     item.addEventListener("mouseenter", () => {
-      if (activeItem !== item) {
-        mainText.style.opacity = "0";
-        description.style.opacity = "1";
-        bgTop.style.height = "55%";
-        bgBottom.style.height = "55%";
-      }
+      mainText.style.opacity = "0";
+      description.style.opacity = "1";
+      if(bgTop) bgTop.style.height = "55%";
+      if(bgBottom) bgBottom.style.height = "55%";
     });
 
     item.addEventListener("mouseleave", () => {
-      if (activeItem !== item) {
-        mainText.style.opacity = "1";
-        description.style.opacity = "0";
-        bgTop.style.height = "0";
-        bgBottom.style.height = "0";
-      }
-    });
-
-    item.addEventListener("click", (e) => {
-      e.stopPropagation();
-
-      if (activeItem === item) {
-        item.classList.remove("bg-[b3ac9e]", "active");
-        projectExtra.classList.add("hidden");
-        activeItem = null;
-      } else {
-        if (activeItem) {
-          activeItem.classList.remove("bg-[b3ac9e]", "active");
-          activeItem.querySelector(".project-extra").classList.add("hidden");
-        }
-        item.classList.add("bg-[b3ac9e]", "active");
-        projectExtra.classList.remove("hidden");
-        mainText.style.opacity = "1";
-        description.style.opacity = "0";
-        bgTop.style.height = "0";
-        bgBottom.style.height = "0";
-        activeItem = item;
-      }
+      mainText.style.opacity = "1";
+      description.style.opacity = "0";
+      if(bgTop) bgTop.style.height = "0";
+      if(bgBottom) bgBottom.style.height = "0";
     });
   });
 
-  document.addEventListener("click", (e) => {
-    const isClickInsideProject = e.target.closest('.project-item');
-    const isClickInsideLightbox = e.target.closest('#lightbox');
-
-    if (!isClickInsideProject && !isClickInsideLightbox && activeItem) {
-      activeItem.classList.remove("bg-[b3ac9e]", "active");
-      activeItem.querySelector(".project-extra").classList.add("hidden");
-      activeItem = null;
-    }
-  });
-
-  scrollContainers.forEach(container => {
-    container.addEventListener("wheel", (e) => {
-      if (!e.shiftKey) {
-        e.preventDefault();
-        container.scrollLeft += e.deltaY;
-      }
-    }, { passive: false });
-  });
-
+  // Lightbox setup
   document.querySelectorAll(".project-extra .overflow-x-auto .grid > div").forEach(wrapper => {
     const mainImage = wrapper.querySelector("img[data-group]");
     if (mainImage) images.push(mainImage);
@@ -141,33 +94,32 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
     }
   });
-});
 
-  
-
+  // Horizontal scroll animation on page scroll
   (() => {
-    let content = document.querySelector("#scroll-content-project");  // فقط یک عنصر انتخاب می‌کنیم
+    let content = document.querySelector("#scroll-content-project");
+    if (!content) return;
+
     let lastScrollY = window.scrollY;
     let targetX = 400;
     let currentX = 0;
-    let speed = 0.4;  // سرعت حرکت افقی
-    let maxScroll = 1500;  // حداکثر مقدار برای حرکت افقی، می‌توانید تغییر دهید
-  
-    // هنگام اسکرول، تغییرات موقعیت افقی را محاسبه می‌کنیم
+    let speed = 0.4;
+    let maxScroll = 1500;
+
     window.addEventListener('scroll', () => {
       let deltaY = window.scrollY - lastScrollY;
       lastScrollY = window.scrollY;
-      targetX += deltaY;  // تغییر موقعیت هدف
-      // محدود کردن حرکت افقی
+      targetX += deltaY;
       if (targetX > maxScroll) targetX = maxScroll;
       if (targetX < 0) targetX = 0;
     });
-  
+
     function animate() {
-      currentX += (targetX - currentX) * speed;  // به‌روزرسانی موقعیت فعلی به‌طور نرم
-      content.style.transform = `translateX(-${currentX}px)`;  // اعمال تغییر به عنصر
-      requestAnimationFrame(animate);  // ادامه انیمیشن
+      currentX += (targetX - currentX) * speed;
+      content.style.transform = `translateX(-${currentX}px)`;
+      requestAnimationFrame(animate);
     }
-  
-    animate();  // شروع انیمیشن
+
+    animate();
   })();
+});
