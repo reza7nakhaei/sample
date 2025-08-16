@@ -1,3 +1,65 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-image");
+    const closeBtn = document.getElementById("lightbox-close");
+    const nextBtn = document.getElementById("lightbox-next");
+    const prevBtn = document.getElementById("lightbox-prev");
+
+    const images = Array.from(document.querySelectorAll(".lightbox-img"));
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = images[currentIndex].src;
+        lightbox.classList.add("show");
+        lightboxImg.classList.remove("zoomOut");
+        nextBtn.classList.remove("hide");
+        prevBtn.classList.remove("hide");
+        nextBtn.classList.add("show");
+        prevBtn.classList.add("show");
+    }
+
+    function closeLightbox() {
+        // اضافه کردن کلاس zoomOut برای عکس
+        lightboxImg.classList.add("zoomOut");
+
+        // خروج دکمه‌ها
+        nextBtn.classList.remove("show");
+        prevBtn.classList.remove("show");
+        nextBtn.classList.add("hide");
+        prevBtn.classList.add("hide");
+
+        // صبر برای پایان انیمیشن عکس قبل از مخفی کردن لایت‌باکس
+        setTimeout(() => {
+            lightbox.classList.remove("show");
+            lightboxImg.src = "";
+            lightboxImg.classList.remove("zoomOut");
+        }, 600); // طول انیمیشن زوم اوت
+    }
+
+    images.forEach((img, index) => {
+        img.addEventListener("click", (e) => {
+            e.preventDefault();
+            openLightbox(index);
+        });
+    });
+
+    if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+    if (nextBtn) nextBtn.addEventListener("click", () => openLightbox((currentIndex + 1) % images.length));
+    if (prevBtn) prevBtn.addEventListener("click", () => openLightbox((currentIndex - 1 + images.length) % images.length));
+
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("show")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") openLightbox((currentIndex + 1) % images.length);
+        if (e.key === "ArrowLeft") openLightbox((currentIndex - 1 + images.length) % images.length);
+    });
+});
+
 
 // توپ نارنجی
 
