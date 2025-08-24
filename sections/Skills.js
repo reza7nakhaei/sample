@@ -29,63 +29,57 @@ document.querySelectorAll('.magnetic').forEach(el => {
   });
 });
 
+// حرکت افقی و نمایش پله‌ای متن برای بخش skills
 (() => {
-  let content = document.querySelector("#scroll-content-skills");  // فقط یک عنصر انتخاب می‌کنیم
+  const content = document.querySelector("#scroll-content-skills");
+  if (!content) return; // بررسی وجود عنصر
+
   let lastScrollY = window.scrollY;
   let targetX = 0;
   let currentX = 0;
-  let speed = 0.1;  // سرعت حرکت افقی
-  let maxScroll = 1000;  // حداکثر مقدار برای حرکت افقی، می‌توانید تغییر دهید
+  const speed = 0.1;
+  const maxScroll = 1000;
 
-  // هنگام اسکرول، تغییرات موقعیت افقی را محاسبه می‌کنیم
   window.addEventListener('scroll', () => {
-    let deltaY = window.scrollY - lastScrollY;
+    const deltaY = window.scrollY - lastScrollY;
     lastScrollY = window.scrollY;
-    targetX += deltaY;  // تغییر موقعیت هدف
-    // محدود کردن حرکت افقی
+    targetX += deltaY;
     if (targetX > maxScroll) targetX = maxScroll;
     if (targetX < 0) targetX = 0;
   });
 
   function animate() {
-    currentX += (targetX - currentX) * speed;  // به‌روزرسانی موقعیت فعلی به‌طور نرم
-    content.style.transform = `translateX(-${currentX}px)`;  // اعمال تغییر به عنصر
-    requestAnimationFrame(animate);  // ادامه انیمیشن
+    currentX += (targetX - currentX) * speed;
+    content.style.transform = `translateX(-${currentX}px)`;
+    requestAnimationFrame(animate);
   }
 
-  animate();  // شروع انیمیشن
+  animate();
 })();
 
-
-
+// نمایش پله‌ای متن هنگام ورود به viewport
 document.addEventListener('DOMContentLoaded', () => {
   const section = document.getElementById('creative');
-  const items   = Array.from(section.querySelectorAll('p'));
+  if (!section) return;
+
+  const items = Array.from(section.querySelectorAll('p'));
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // ورود به viewport: نمایش پله‌ای
         items.forEach((p, idx) => {
-          // هر بار هنگام ورود، transition-delay متناسب تنظیم می‌شود
-          const delay = idx * 100;       // 0ms, 100ms, 200ms...
+          const delay = idx * 400; // 0ms, 100ms, 200ms ...
           p.style.transitionDelay = `${delay}ms`;
           p.classList.add('visible');
         });
       } else {
-        // خروج از viewport: ریست فاصله و شفافیت
-        items.forEach((p) => {
+        items.forEach(p => {
           p.style.transitionDelay = '0ms';
           p.classList.remove('visible');
         });
       }
     });
-  }, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5,
-  });
+  }, { root: null, rootMargin: '0px', threshold: 0.5 });
 
   observer.observe(section);
 });
-

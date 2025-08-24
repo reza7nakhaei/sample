@@ -19,14 +19,15 @@ $section = mysqli_fetch_assoc($infoResult);
 <meta content="width=device-width,initial-scale=1" name="viewport" />
 <title>
   gohar hossein zadeh . dubai</title>
-<link href="styles/output.css" rel="stylesheet" />
-<link href="styles/style.css" rel="stylesheet" />
+<link href="./styles/input.css" rel="stylesheet" />
+<link href="./styles/style.css" rel="stylesheet" />
+<link href="./styles/output.css" rel="stylesheet" />
 <link href="./img/favi.webp" rel="icon" type="image/x-icon" />
 <link href="./font/Oswald-Light.woff" rel="preload" type="font/woff2" as="font" crossorigin="anonymous" />
 <link href="./font/Oswald-Light.woff2" rel="preload" type="font/woff2" as="font" crossorigin="anonymous" />
 <script src="./sections/global.js" type="module"></script>
 
-<body class="uppercase bg-[#fcfcf3] font-oswald" data-section="home">
+<body class="uppercase bg-[#fcfcf3] font-oswald text-[3f3b37]" data-section="home">
   <!--  سلام اول سایت -->
   <div id="splash">
     <p id="greeting"></p>
@@ -34,23 +35,17 @@ $section = mysqli_fetch_assoc($infoResult);
 
   <!-- صفحه اول سایت  -->
   <div class="hidden bg-[#fcfcf3]" id="main-content">
-    <section class="flex bg-[#fcfcf3] flex-col home-hero md:h-screen overflow-hidden w-full" id="home">
+    <section class="hidden sm:block flex flex-col bg-[#fcfcf3]  home-hero md:h-screen overflow-hidden w-full" id="home">
       <!-- بخش بالا -->
       <section>
-        <section
-          class="flex items-end pt-10 2xl:pt-28 2xl:px-56 basis-[30%] justify-end lg:pt-20 lg:px-28 md:pt-20 md:px-20 px-6 sm:pt-20 sm:px-10 w-full xl:pt-28 xl:px-32"
-          id="hero">ّ
-
-          <!-- بخش چپ حذف شد -->
-          <div class="left-box hidden"></div>
-
-          <div class="right-box hidden sm:inline-block">
+        <section class="flex items-center justify-end pt-10 md:pt-16   lg:pt-20 lg:px-28 2xl:pt-28  " id="hero">
+          <div class="right-box hidden sm:inline-block pb-4 lg:pb-6 ">
             <a href="#contact" class="inline-block">
               <h4
-                class="uppercase tracking-widest cursor-default font-light mb-1 md:mb-2 md:text-3xl select-none sm:text-2xl text-center text-xl">
-                let.s make magic!
+                class="text-[3f3b37] uppercase tracking-widest cursor-default font-light mb-1 md:mb-2 md:text-3xl select-none sm:text-2xl text-center text-xl">
+                Let's make magic!
               </h4>
-              <button class="w-full backgroundButton md:p-2 p-1 rounded-2xl text-white" id="myButton">
+              <button class="w-full backgroundButton md:p-2 p-1 rounded-2xl text-[#fcfcf3]" id="myButton">
                 <span
                   class="uppercase tracking-widest btnSpan font-extralight md:font-light md:text-2xl sm:text-xl text-base">Start
                   a Project</span>
@@ -63,165 +58,332 @@ $section = mysqli_fetch_assoc($infoResult);
 
 
       <!-- بخش پایین -->
-      <section class="flex w-full">
 
-        <!-- بخش چپ پایین -->
-        <section class="w-1/2 flex items-center justify-center" id="features">
-          <div class="feature-section h-full flex flex-col items-center justify-center">
+      <section class="flex w-full relative"><!-- Bottom wrapper -->
 
-            <!-- بخش اول: کلمه CREATIVE -->
-            <div class="flex sm:flex-col sm:items-start items-center justify-center space-y-1 tracking-tight">
-              <p
-                class="cursor-default select-none font-light md:text-2xl lg:text-3xl 2xl:text-4xl text-lg sm:text-xl whitespace-nowrap colored heading-1">
-                <span class="letterColor">C</span>
-                <span class="letterColor">R</span>
-                <span class="letterColor">E</span>
-                <span class="letterColor">A</span>
-                <span class="letterColor">T</span>
-                <span class="letterColor">I</span>
-                <span class="letterColor">V</span>
-                <span class="letterColor">E</span>
-              </p>
+        <!-- LEFT: text stack -->
+        <section class="w-3/5 " id="features-left">
+          <div class="feature-section h-full flex flex-col items-start justify-end w-full space-y-3">
+
+            <!-- Row 1: CREATIVE -->
+            <div class="w-full relative">
+              <div class="flex sm:flex-col sm:items-start items-center justify-center tracking-tight pl-28 md:pl-32">
+                <p
+                  class="cursor-default select-none text-[3f3b37] font-normal md:text-7xl lg:text-[82px] 2xl:text-8xl text-5xl  whitespace-nowrap colored heading-1">
+                  <span class="letterColor">C</span>
+                  <span class="letterColor">R</span>
+                  <span class="letterColor">E</span>
+                  <span class="letterColor">A</span>
+                  <span class="letterColor">T</span>
+                  <span class="letterColor">I</span>
+                  <span class="letterColor">V</span>
+                  <span class="letterColor">E</span>
+                </p>
+              </div>
+              <!-- Divider full width -->
+              <div class="h-[1px] bg-slate-300 w-screen absolute left-0"></div>
             </div>
 
-            <!-- بخش دوم: کلمه designer -->
-            <div class="flex sm:flex-col sm:items-start items-center justify-center space-y-1 tracking-tight">
-              <p
-                class="cursor-default select-none font-light md:text-2xl lg:text-3xl 2xl:text-4xl text-lg sm:text-xl whitespace-nowrap colored heading-1">
-                <span class="letterColor">d</span>
-                <span class="letterColor">e</span>
-                <span class="letterColor">s</span>
-                <span class="letterColor">i</span>
-                <span class="letterColor">g</span>
-                <span class="letterColor">n</span>
-                <span class="letterColor">e</span>
-                <span class="letterColor">r</span>
-              </p>
+            <!-- Row 2: designer -->
+            <div class="w-full relative">
+              <div class="flex sm:flex-col sm:items-start items-center justify-center tracking-tight pl-36 md:pl-48">
+                <p
+                  class="cursor-default select-none text-[3f3b37] font-normal md:text-7xl lg:text-[82px] 2xl:text-8xl text-5xl whitespace-nowrap colored heading-1">
+                  <span class="letterColor">d</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">s</span>
+                  <span class="letterColor">i</span>
+                  <span class="letterColor">g</span>
+                  <span class="letterColor">n</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">r</span>
+                </p>
+              </div>
+              <!-- Divider full width -->
+              <div class="h-[1px] bg-slate-300 w-screen absolute left-0"></div>
             </div>
 
-            <!-- بخش سوم: &developer -->
-            <div class="flex sm:flex-col sm:items-start items-center justify-center space-y-1 tracking-tight">
-              <p
-                class="cursor-default select-none font-light md:text-2xl lg:text-3xl 2xl:text-4xl text-lg sm:text-xl whitespace-nowrap colored heading-1">
-                <span class="letterColor">&</span>
-                <span class="letterColor">d</span>
-                <span class="letterColor">e</span>
-                <span class="letterColor">v</span>
-                <span class="letterColor">e</span>
-                <span class="letterColor">i</span>
-                <span class="letterColor">o</span>
-                <span class="letterColor">p</span>
-                <span class="letterColor">e</span>
-                <span class="letterColor">readfile</span>
-              </p>
+            <!-- Row 3: &developer -->
+            <div class="w-full relative">
+              <div class="flex sm:flex-col sm:items-start items-center justify-center tracking-tight pb-2 pl-28 md:pl-32">
+                <p
+                  class="cursor-default select-none text-[3f3b37] font-normal md:text-7xl lg:text-[82px] 2xl:text-8xl text-5xl whitespace-nowrap colored heading-1">
+                  <span class="letterColor pr-[3px]">&</span>
+                  <span class="letterColor">d</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">v</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">l</span>
+                  <span class="letterColor">o</span>
+                  <span class="letterColor">p</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">r</span>
+                </p>
+              </div>
+              <!-- Divider full width -->
+              <!-- <div class="h-[1px] bg-slate-300 w-screen absolute left-0"></div> -->
+              <!-- </div> -->
+
+              <!-- Menu -->
+              <section class="w-full" id="menue">
+                <div class="w-full border-y border-slate-300 w-screen about-box flex items-center justify-start pl-36 md:pl-48">
+                  <div class="flex items-center justify-center flex-wrap sm:justify-start">
+                    <!-- Links -->
+                    <a href="#profile" id="skillsAbout"
+                      class="px-2 md:px-6 border-slate-300 border-l-2 group inline-block md:py-1 overflow-hidden py-0.5 relative sm:px-4 xl:px-8 xl:py-2">
+                      <p
+                        class="uppercase text-[3f3b37] duration-500 ease-out md:scale-y-125 transform transition-all xl:scale-y-150 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
+                        about</p>
+                      <span
+                        class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-125 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-150">about</span>
+                    </a>
+
+                    <a href="#scroll-content-skills"
+                      class="px-2 md:px-6 border-slate-300 border-l-2 group inline-block md:py-1 overflow-hidden py-0.5 relative sm:px-4 xl:px-8 xl:py-2">
+                      <p
+                        class="uppercase text-[3f3b37] duration-500 ease-out md:scale-y-125 transform transition-all xl:scale-y-150 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
+                        skills</p>
+                      <span
+                        class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-125 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-150">skills</span>
+                    </a>
+
+                    <a href="#scroll-content-project"
+                      class="px-2 md:px-6 border-slate-300 border-l-2 group inline-block md:py-1 overflow-hidden py-0.5 relative sm:px-4 xl:px-8 xl:py-2">
+                      <p
+                        class="uppercase text-[3f3b37] duration-500 ease-out md:scale-y-125 transform transition-all xl:scale-y-150 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
+                        projects</p>
+                      <span
+                        class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-125 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-150">projects</span>
+                    </a>
+
+                    <a href="#contact"
+                      class="px-2 md:px-6 border-slate-300 border-l-2 group inline-block md:py-1 overflow-hidden py-0.5 relative sm:px-4 xl:px-8 xl:py-2 border-r-2">
+                      <p
+                        class="uppercase text-[3f3b37] duration-500 ease-out md:scale-y-125 transform transition-all xl:scale-y-150 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
+                        contact</p>
+                      <span
+                        class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-125 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-150">contact</span>
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </div>
+        </section>
+
+        <!-- RIGHT: hero -->
+        <section class="w-2/5 flex items-end justify-center" id="features-right">
+          <div class="feature-section h-full w-2/3 flex items-end  justify-center">
+            <div id="hero-container" class="relative mx-auto flex items-center justify-center h-full">
+              <img src="./public/assets/img/01.webp" alt="Hero Image" id="hero-img"
+                class="object-contain h-full max-h-full mx-auto block" />
+              <!-- Eyes -->
+              <div
+                class="eye eye--left absolute bg-white rounded-full overflow-hidden flex items-center justify-center  h-4 w-4 top-[21%]  left-[59%]">
+                <div class="pupil absolute rounded-full bg-black transition-transform duration-75  h-2 w-2">
+                </div>
+              </div>
+              <div
+                class="eye eye--right absolute bg-white rounded-full overflow-hidden flex items-center justify-center  h-4 w-4 top-[19%]  left-[65%]">
+                <div class="pupil absolute rounded-full bg-black transition-transform duration-75  h-2 w-2">
+                </div>
+              </div>
+              <!-- <div>
+                <img id="eye--left-gerdab" src="./img/gerd2.webp" alt=""
+                  class="rounded-full absolute 2xl:h-9 2xl:w-9 lg:h-6 lg:w-6 md:h-6 md:w-6 xl:h-7 xl:w-7 h-5 w-5 top-[56%] 2xl:left-[31%] lg:left-[50%] md:left-[29%] xl:left-[31%] left-[29%] hidden z-30" />
+              </div>
+              <div>
+                <img id="eye--rhite-gerdab" src="./img/gerd2.webp" alt=""
+                  class="rounded-full absolute 2xl:h-9 2xl:w-9 lg:h-6 lg:w-6 md:h-6 md:w-6 xl:h-7 xl:w-7 h-5 w-5 top-[56%] 2xl:left-[46%] lg:left-[44%] md:left-[45%] xl:left-[46%] left-[45%] hidden z-30" />
+              </div> -->
+              <div
+                class="eye eye--left absolute bg-white rounded-full overflow-hidden flex items-center justify-center  h-3 w-3 top-[23%]  left-[30%]">
+                <div class="pupil absolute rounded-full bg-black transition-transform duration-75  h-1 w-1">
+                </div>
+              </div>
+              <div
+                class="eye eye--right absolute bg-white rounded-full overflow-hidden flex items-center justify-center  h-3 w-3 top-[23%]  left-[34%]">
+                <div class="pupil absolute rounded-full bg-black transition-transform duration-75  h-1 w-1">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+    </section>
+
+    <!-- موبایل -->
+    <section class="sm:hidden flex flex-col-reverse py-8 bg-[#fcfcf3]  home-hero   w-full" id="home">
+      <!-- بخش بالا -->
+      <section>
+        <section class="flex items-center justify-center      " id="hero">
+          <div class="right-box  sm:inline-block  ">
+            <a href="#contact" class="inline-block">
+              <h4
+                class="text-[3f3b37] uppercase tracking-widest cursor-default font-light mb-1 md:mb-2 md:text-3xl select-none sm:text-2xl text-center text-xl">
+                Let's make magic!
+              </h4>
+              <button class="w-full backgroundButton md:p-2 p-1 rounded-2xl text-[#fcfcf3]" id="myButton">
+                <span
+                  class="uppercase tracking-widest btnSpan font-extralight md:font-light md:text-2xl sm:text-xl text-base">Start
+                  a Project</span>
+              </button>
+            </a>
+          </div>
+
+        </section>
+      </section>
+
+      <!-- بخش پایین -->
+      <section class="flex flex-col items-center justify-center w-full relative"><!-- Bottom wrapper -->
+
+        <!-- LEFT: text stack -->
+        <section class="w-full " id="features-left">
+          <div class="feature-section  w-full ">
+
+            <!-- Row 1: CREATIVE -->
+            <div class="w-full relative">
+              <div class="pl-12 tracking-tight ">
+                <p
+                  class="cursor-default select-none text-[3f3b37] font-normal text-5xl whitespace-nowrap colored heading-1">
+                  <span class="letterColor">C</span>
+                  <span class="letterColor">R</span>
+                  <span class="letterColor">E</span>
+                  <span class="letterColor">A</span>
+                  <span class="letterColor">T</span>
+                  <span class="letterColor">I</span>
+                  <span class="letterColor">V</span>
+                  <span class="letterColor">E</span>
+                </p>
+              </div>
+              <!-- Divider full width -->
+              <div class="h-[1px] bg-slate-300 w-screen absolute left-0"></div>
             </div>
 
-            <!-- منو ها -->
-            <section class="flex items-center justify-center sm:h-[30vh] sm:w-full" id="menue">
-              <div class="w-full border-b-2 border-black border-t-2 about-box">
-                <div
-                  class="flex items-center justify-center 2xl:pl-52 flex-wrap lg:pl-20 md:pl-16 sm:justify-start sm:pl-10 xl:pl-28">
-                  <a href="#profile"
-                    class="px-2 md:px-8 border-black border-l-2 group inline-block md:py-2 overflow-hidden py-1 relative sm:px-6 text-[3f3b37] xl:px-10 xl:py-3"
-                    id="skillsAbout">
+            <!-- Row 2: designer -->
+            <div class="w-full relative">
+              <div class=" tracking-tight pl-20">
+                <p
+                  class="cursor-default select-none text-[3f3b37] font-light text-5xl whitespace-nowrap colored heading-1">
+                  <span class="letterColor">d</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">s</span>
+                  <span class="letterColor">i</span>
+                  <span class="letterColor">g</span>
+                  <span class="letterColor">n</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">r</span>
+                </p>
+              </div>
+              <!-- Divider full width -->
+              <div class="h-[1px] bg-slate-300 w-screen absolute left-0"></div>
+            </div>
+
+            <!-- Row 3: &developer -->
+            <div class="w-full  relative">
+              <div class=" pl-12 tracking-tight ">
+                <p
+                  class=" cursor-default select-none text-[3f3b37] font-light text-5xl whitespace-nowrap colored heading-1">
+                  <span class="letterColor pr-1">&</span>
+                  <span class="letterColor">d</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">v</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">l</span>
+                  <span class="letterColor">o</span>
+                  <span class="letterColor">p</span>
+                  <span class="letterColor">e</span>
+                  <span class="letterColor">r</span>
+                </p>
+              </div>
+
+
+            </div>
+
+            <!-- Menu -->
+            <section class="w-full py-2" id="menue">
+              <div class="w-full border-y border-slate-300  about-box flex items-center justify-center ">
+                <div class="flex items-center justify-center flex-wrap sm:justify-start">
+                  <!-- Links -->
+                  <a href="#profile" id="skillsAbout"
+                    class="px-2 md:px-6 border-slate-300 border-l-2 group inline-block md:py-1 overflow-hidden py-0.5 relative sm:px-4 xl:px-8 xl:py-2">
                     <p
-                      class="uppercase duration-500 ease-out md:scale-y-150 transform transition-all xl:scale-y-200 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
+                      class="uppercase text-[3f3b37] duration-500 ease-out md:scale-y-125 transform transition-all xl:scale-y-150 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
                       about</p>
                     <span
-                      class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-150 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-200">about</span>
+                      class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-125 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-150">about</span>
                   </a>
+
                   <a href="#scroll-content-skills"
-                    class="px-2 md:px-8 border-black border-l-2 group inline-block md:py-2 overflow-hidden py-1 relative sm:px-6 text-[3f3b37] xl:px-10 xl:py-3">
+                    class="px-2 md:px-6 border-slate-300 border-l-2 group inline-block md:py-1 overflow-hidden py-0.5 relative sm:px-4 xl:px-8 xl:py-2">
                     <p
-                      class="uppercase duration-500 ease-out md:scale-y-150 transform transition-all xl:scale-y-200 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
+                      class="uppercase text-[3f3b37] duration-500 ease-out md:scale-y-125 transform transition-all xl:scale-y-150 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
                       skills</p>
                     <span
-                      class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-150 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-200">skills</span>
+                      class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-125 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-150">skills</span>
                   </a>
+
                   <a href="#scroll-content-project"
-                    class="px-2 md:px-8 border-black border-l-2 group inline-block md:py-2 overflow-hidden py-1 relative sm:px-6 text-[3f3b37] xl:px-10 xl:py-3">
+                    class="px-2 md:px-6 border-slate-300 border-l-2 group inline-block md:py-1 overflow-hidden py-0.5 relative sm:px-4 xl:px-8 xl:py-2">
                     <p
-                      class="uppercase duration-500 ease-out md:scale-y-150 transform transition-all xl:scale-y-200 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
+                      class="uppercase text-[3f3b37] duration-500 ease-out md:scale-y-125 transform transition-all xl:scale-y-150 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
                       projects</p>
                     <span
-                      class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-150 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-200">projects</span>
+                      class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-125 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-150">projects</span>
                   </a>
+
                   <a href="#contact"
-                    class="px-2 md:px-8 border-black border-l-2 group inline-block md:py-2 overflow-hidden py-1 relative sm:px-6 text-[3f3b37] xl:px-10 xl:py-3 border-r-2">
+                    class="px-2 md:px-6 border-slate-300 border-l-2 group inline-block md:py-1 overflow-hidden py-0.5 relative sm:px-4 xl:px-8 xl:py-2 border-r-2">
                     <p
-                      class="uppercase duration-500 ease-out md:scale-y-150 transform transition-all xl:scale-y-200 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
+                      class="uppercase text-[3f3b37] duration-500 ease-out md:scale-y-125 transform transition-all xl:scale-y-150 group-hover:-translate-y-2 group-hover:opacity-0 group-hover:scale-95">
                       contact</p>
                     <span
-                      class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-150 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-200">contact</span>
+                      class="flex items-center justify-center transition-all absolute duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 inset-0 md:scale-y-125 opacity-0 text-[#b3ac9e] transform translate-y-2 uppercase xl:scale-y-150">contact</span>
                   </a>
                 </div>
               </div>
             </section>
-
-          </div>
         </section>
 
-        <!-- بخش راست پایین -->
-        <section class="w-1/2 flex items-center justify-center" id="features">
-          <div class="feature-section h-full flex items-center justify-center">
-            <div class="flex items-center justify-center 2xl:px-32 feature-image lg:px-28 sm:grid sm:items-end w-full"
-              style="grid-template-columns: 40% 20% 40%">
-              <div class="inline-block relative mx-auto" id="hero-container">
-                <img alt="Hero Image" class="block sm:mx-auto" src="./public/assets/img/01.webp" id="hero-img" />
-                <div>
-                  <img alt=""
-                    class="flex items-center justify-center rounded-full absolute 2xl:h-9 2xl:top-[56%] 2xl:w-9 lg:h-6 lg:top-[56%] lg:w-6 md:h-6 md:top-[56%] md:w-6 top-[56%] xl:h-7 xl:top-[56%] xl:w-7 2xl:left-[31%] lg:left-[28%] md:left-[29%] xl:left-[31%] h-5 hidden left-[29%] w-5 z-30"
-                    src="./img/gerd2.webp" id="eye--left-gerdab" />
+        <!-- RIGHT: hero -->
+        <section class="w-full flex items-center justify-center py-2" id="features-right">
+          <div class="feature-section h-full w-2/3 flex items-end  justify-center">
+            <div id="hero-container" class="relative mx-auto flex items-center justify-center h-full">
+              <img src="./public/assets/img/01.webp" alt="Hero Image" id="hero-img"
+                class="object-contain h-full max-h-full mx-auto block" />
+              <!-- Eyes -->
+              <div
+                class="eye eye--left absolute bg-white rounded-full overflow-hidden flex items-center justify-center  h-4 w-4 top-[21%]  left-[59%]">
+                <div class="pupil absolute rounded-full bg-black transition-transform duration-75  h-2 w-2">
                 </div>
-                <div>
-                  <img alt=""
-                    class="flex items-center justify-center rounded-full absolute 2xl:h-9 2xl:top-[56%] 2xl:w-9 lg:h-6 lg:top-[56%] lg:w-6 md:h-6 md:top-[56%] md:w-6 top-[56%] xl:h-7 xl:top-[56%] xl:w-7 2xl:left-[46%] lg:left-[44%] md:left-[45%] xl:left-[46%] h-5 hidden left-[45%] w-5 z-30"
-                    src="./img/gerd2.webp" id="eye--rhite-gerdab" />
+              </div>
+              <div
+                class="eye eye--right absolute bg-white rounded-full overflow-hidden flex items-center justify-center  h-4 w-4 top-[19%]  left-[65%]">
+                <div class="pupil absolute rounded-full bg-black transition-transform duration-75  h-2 w-2">
                 </div>
-                <div
-                  class="flex items-center justify-center overflow-hidden rounded-full absolute bg-white eye eye--left 2xl:h-9 2xl:left-[31%] 2xl:top-[56%] 2xl:w-9 h-9 left-[32%] lg:h-6 lg:left-[28%] lg:top-[56%] lg:w-6 md:h-6 md:left-[29%] md:top-[56%] md:w-6 sm:h-5 sm:w-5 top-[56%] w-9 xl:h-7 xl:left-[31%] xl:top-[56%] xl:w-7">
-                  <div
-                    class="absolute rounded-full bg-black duration-75 md:h-3 md:w-3 pupil transition-transform 2xl:h-4 2xl:w-4 h-4 sm:h-2 sm:w-2 w-4">
-                  </div>
+              </div>
+              <!-- <div>
+                <img id="eye--left-gerdab" src="./img/gerd2.webp" alt=""
+                  class="rounded-full absolute 2xl:h-9 2xl:w-9 lg:h-6 lg:w-6 md:h-6 md:w-6 xl:h-7 xl:w-7 h-5 w-5 top-[56%] 2xl:left-[31%] lg:left-[50%] md:left-[29%] xl:left-[31%] left-[29%] hidden z-30" />
+              </div>
+              <div>
+                <img id="eye--rhite-gerdab" src="./img/gerd2.webp" alt=""
+                  class="rounded-full absolute 2xl:h-9 2xl:w-9 lg:h-6 lg:w-6 md:h-6 md:w-6 xl:h-7 xl:w-7 h-5 w-5 top-[56%] 2xl:left-[46%] lg:left-[44%] md:left-[45%] xl:left-[46%] left-[45%] hidden z-30" />
+              </div> -->
+              <div
+                class="eye eye--left absolute bg-white rounded-full overflow-hidden flex items-center justify-center  h-3 w-3 top-[23%]  left-[30%]">
+                <div class="pupil absolute rounded-full bg-black transition-transform duration-75  h-1 w-1">
                 </div>
-                <div
-                  class="flex items-center justify-center overflow-hidden rounded-full absolute bg-white eye 2xl:h-9 2xl:top-[56%] 2xl:w-9 h-9 lg:h-6 lg:top-[56%] lg:w-6 md:h-6 md:top-[56%] md:w-6 sm:h-5 sm:w-5 top-[56%] w-9 xl:h-7 xl:top-[56%] xl:w-7 2xl:left-[46%] eye--right left-[46%] lg:left-[44%] md:left-[45%] xl:left-[46%]">
-                  <div
-                    class="absolute rounded-full bg-black duration-75 md:h-3 md:w-3 pupil transition-transform 2xl:h-4 2xl:w-4 h-4 sm:h-2 sm:w-2 w-4">
-                  </div>
+              </div>
+              <div
+                class="eye eye--right absolute bg-white rounded-full overflow-hidden flex items-center justify-center  h-3 w-3 top-[23%]  left-[34%]">
+                <div class="pupil absolute rounded-full bg-black transition-transform duration-75  h-1 w-1">
                 </div>
               </div>
             </div>
           </div>
         </section>
-
       </section>
-
-
-
-
-
-
-      <div class="flex justify-start border-black border-y-2 flex-col items-start pl-10 py-4 sm:hidden">
-        <p class="text-4xl whitespace-nowrap font-light">creative</p>
-        <p class="text-4xl whitespace-nowrap font-light">designer</p>
-        <p class="text-4xl whitespace-nowrap font-light">& developer</p>
-      </div>
-      <div class="flex justify-center items-start pt-10">
-        <div class="inline-block right-box sm:hidden">
-          <a href="#contact" class="inline-block">
-            <h4
-              class="uppercase tracking-widest cursor-default font-light mb-1 md:mb-2 md:text-3xl select-none sm:text-2xl text-center text-xl">
-              let’s make magic!
-            </h4>
-            <button class="w-full backgroundButton md:p-2 p-1 rounded-2xl text-white" id="myButton">
-              <span
-                class="uppercase tracking-widest btnSpan font-extralight md:font-light md:text-2xl sm:text-xl text-base">Start
-                a Project</span>
-            </button>
-          </a>
-        </div>
-      </div>
 
     </section>
   </div>
@@ -230,10 +392,10 @@ $section = mysqli_fetch_assoc($infoResult);
 
 
   <!-- صفحه دوم سایت  -->
-  <section class="flex flex-col w-full overflow-hidden" id="profile">
+  <section class="flex flex-col w-full overflow-hidden " id="profile">
     <div class="w-full overflow-hidden backgroundColorAllbrown h-14 md:h-20 top-0" id="scroll-pin">
       <div
-        class="flex items-center text-white font-normal h-full md:text-7xl pb-1 text-3xl whitespace-nowrap will-change-transform"
+        class="flex items-center text-[#fcfcf3] font-normal h-full md:text-7xl pb-1 text-3xl whitespace-nowrap will-change-transform"
         id="scroll-content-profile" data-tx="0">
         <span class="px-2 md:px-4">profile</span><span class="px-2 md:px-4">-</span>
         <span class="px-2 md:px-4">profile</span><span class="px-2 md:px-4">-</span>
@@ -257,17 +419,34 @@ $section = mysqli_fetch_assoc($infoResult);
         <span class="px-2 md:px-4">profile</span><span class="px-2 md:px-4">-</span>
       </div>
     </div>
-    <div class="pl-10 md:my-24 md:pl-32 my-20">
-      <p class="cursor-default select-none md:text-7xl capitalize text-5xl">
-        <?php echo htmlspecialchars($section['title']); ?>
+    <div class="px-10 md:my-24 md:px-32 py-10 sm:my-20">
+      <p class="cursor-default select-none md:text-7xl capitalize text-5xl">A small intro
       </p>
-      <p class="uppercase cursor-default font-light select-none text-xl md:text-2xl pt-4">
-        <?php echo nl2br(htmlspecialchars($section['description'])); ?>
+      <p class="uppercase cursor-default font-light select-none text-base md:text-2xl pt-4">
+
+        Gohar H. Nazeri
+
+        Senior Graphic Designer with a keen eye for detail.
+        With 16 years of experience creating engaging visual designs for a variety of clients.
+
+
+        Mahtab H. Nazeri
+
+        Graphic Designer and Creative in the field
+        of graphic design With 5 years of experience in graphic design, ideation, color theory, and typography.
+
+        Together, we have formed a two-person team that, by brainstorming and brainstorming
+        with each other, Works in developing creative solutions for a variety of projects, including branding, print,
+        and digital media.
+
+        Committed to delivering high-quality work On time and exceeding client expectations.
+
+
       </p>
     </div>
     <div class="w-full overflow-hidden backgroundColorAllbrown h-14 md:h-20 top-0" id="scroll-pin">
       <div
-        class="flex items-center text-white font-normal h-full md:text-7xl pb-1 text-3xl whitespace-nowrap will-change-transform"
+        class="flex items-center text-[#fcfcf3] font-normal h-full md:text-7xl pb-1 text-3xl whitespace-nowrap will-change-transform"
         id="scroll-content-skills" data-tx="0">
         <span class="px-2 md:px-4">skills</span><span class="px-2 md:px-4">-</span>
         <span class="px-2 md:px-4">skills</span><span class="px-2 md:px-4">-</span>
@@ -297,33 +476,51 @@ $section = mysqli_fetch_assoc($infoResult);
 
   <section class="w-full relative snap-start" id="skills">
     <div
-      class="flex items-start pl-10 flex-col-reverse font-light lg:py-20 lg:text-6xl overflow-hidden py-14 sm:flex sm:flex-row sm:font-me sm:items-center sm:justify-evenly sm:py-15 sm:text-4xl text-3xl">
-      <div class="cursor-default select-none lg:leading-snug overflow-hidden tracking-widest" id="creative">
-        <?php while ($service = mysqli_fetch_assoc($servicesResult)): ?>
+      class="flex items-start pl-10 flex-col-reverse font-light lg:py-20 lg:text-6xl overflow-hidden py-14 sm:flex sm:flex-row sm:font-me sm:items-center sm:justify-evenly sm:py-15 sm:text-4xl text-3xl relative">
+
+      <!-- متن‌ها -->
+      <div class="cursor-default select-none lg:leading-snug tracking-widest relative z-0" id="creative">
         <p
-          class="transition-transform duration-[1500ms] ease-in-out opacity-0 transform transition-opacity translate-x-[240px]">
-
-          <?php echo htmlspecialchars($service['title']); ?>
-
+          class="transition-transform duration-[1500ms] ease-in-out opacity-0 transform transition-opacity translate-x-[500px]">
+          Brand identity
         </p>
-        <?php endwhile; ?>
-
+        <p
+          class="transition-transform duration-[2000ms] ease-in-out opacity-0 transform transition-opacity translate-x-[500px]">
+          Advertising design
+        </p>
+        <p
+          class="transition-transform duration-[2000ms] ease-in-out opacity-0 transform transition-opacity translate-x-[500px]">
+          Ui/Ux design
+        </p>
+        <p
+          class="transition-transform duration-[2000ms] ease-in-out opacity-0 transform transition-opacity translate-x-[500px]">
+          Visual identity design
+        </p>
+        <p
+          class="transition-transform duration-[2000ms] ease-in-out opacity-0 transform transition-opacity translate-x-[500px]">
+          Typography design
+        </p>
       </div>
-      <div class="relative" id="hero-container">
-        <img alt="Hero Image" class="md:w-72 w-2/3 xl:w-80" src="./img/image_2025-05-04_19-14-04.webp" id="hero-img" />
+
+      <!-- عکس -->
+      <div class="relative z-10" id="hero-container">
+        <img alt="Hero Image" class="md:w-72 w-2/3 xl:w-80 relative z-10" src="./public/assets/img/02.webp"
+          id="hero-img" />
+        <!-- چشم‌ها -->
         <div
-          class="flex items-center justify-center overflow-hidden rounded-full absolute bg-white eye eye--left h-6 md:h-8 md:w-8 sm:h-7 sm:w-7 top-[23%] w-6 2xl:left-[44%] left-[29%] lg:left-[45%] md:left-[44%] md:top-[23%] sm:left-[30%] sm:top-[23%] xl:left-[44%]">
-          <div class="absolute rounded-full bg-black duration-75 md:h-3 md:w-3 pupil transition-transform h-3 w-3">
+          class="flex items-center justify-center overflow-hidden rounded-full absolute bg-white eye h-5 w-5  md:top-[24%] top-[25%] left-[25%] lg:left-[36%]  z-20">
+          <div class="absolute rounded-full bg-black duration-75 md:h-3 md:w-3 pupil transition-transform h-2 w-2">
           </div>
         </div>
         <div
-          class="flex items-center justify-center overflow-hidden rounded-full absolute bg-white eye eye--left h-6 md:h-8 md:w-8 sm:h-7 sm:w-7 top-[23%] w-6 2xl:left-[57%] left-[38%] lg:left-[57%] md:left-[57%] md:top-[24%] sm:left-[38%] sm:top-[24%] xl:left-[57%]">
-          <div class="absolute rounded-full bg-black duration-75 md:h-3 md:w-3 pupil transition-transform h-3 w-3">
+          class="flex items-center justify-center overflow-hidden rounded-full absolute bg-white eye h-5 w-5   top-[25%]  left-[31%] lg:left-[45%]  z-20">
+          <div class="absolute rounded-full bg-black duration-75 md:h-3 md:w-3 pupil transition-transform h-2 w-2">
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
   <div class="w-full overflow-hidden h-14 md:h-20 top-0 backgroundColorAllgray" id="scroll-pin">
     <div class="flex items-center h-full whitespace-nowrap will-change-transform md:text-7xl text-3xl text-[#3f3b37]"
@@ -393,7 +590,8 @@ $section = mysqli_fetch_assoc($infoResult);
           </div>
         </div>
         <div class="z-10 relative ProjectAll pl-10">
-          <span class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Social media</span>
+          <span class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Social
+            media</span>
           <span
             class="flex items-center absolute ease-out inset-0 opacity-0 duration-1000 font-extralight justify-start project-description px:12 sm:px-28 text-xs transition-opacity z-10">
             Social media has become a captivating battleground for brands, where creativity and communication
@@ -414,7 +612,8 @@ $section = mysqli_fetch_assoc($infoResult);
           </div>
         </div>
         <div class="z-10 relative ProjectAll pl-10">
-          <span class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Banner and Billboard</span>
+          <span class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Banner
+            and Billboard</span>
           <span
             class="flex items-center absolute ease-out inset-0 opacity-0 duration-1000 font-extralight justify-start project-description px:12 sm:px-28 text-xs transition-opacity z-10">
             Billboards are powerful advertising tools that allow businesses to convey their messages to a wide range of
@@ -434,7 +633,8 @@ $section = mysqli_fetch_assoc($infoResult);
           </div>
         </div>
         <div class="z-10 relative ProjectAll pl-10">
-          <span class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Ui / UX  design</span>
+          <span class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Ui / UX
+            design</span>
           <span
             class="flex items-center absolute ease-out inset-0 opacity-0 duration-1000 font-extralight justify-start project-description px:12 sm:px-28 text-xs transition-opacity z-10">
             Website design is the art of crafting a digital experience that showcases a brand's identity in an engaging
@@ -455,7 +655,8 @@ $section = mysqli_fetch_assoc($infoResult);
           </div>
         </div>
         <div class="z-10 relative ProjectAll pl-10">
-          <span class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Office set</span>
+          <span class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Office
+            set</span>
           <span
             class="flex items-center absolute ease-out inset-0 opacity-0 duration-1000 font-extralight justify-start project-description px:12 sm:px-28 text-xs transition-opacity z-10">
             In a competitive marketplace, I elevate your brand with data-driven insights and innovative storytelling.
@@ -515,7 +716,7 @@ $section = mysqli_fetch_assoc($infoResult);
 
 
   <!-- صفحه در باره ما -->
-  <div class="w-full overflow-hidden h-14 md:h-20 top-0" id="scroll-pin">
+  <div class="w-full overflow-hidden h-14 md:h-20 top-0 " id="scroll-pin">
     <div class="flex items-center h-full whitespace-nowrap will-change-transform md:text-7xl text-4xl text-[3f3b37]"
       id="scroll-content" data-tx="0">
       <span class="px-2 md:px-4">-</span><span class="px-2 md:px-4">contact</span><span class="px-2 md:px-4">-</span>
@@ -539,12 +740,13 @@ $section = mysqli_fetch_assoc($infoResult);
   </div>
   <section class="flex items-center justify-center flex-col w-full" id="contact">
     <div class="flex items-center justify-center flex-col w-full max-w-4xl my-8 px-4">
-      <img alt="Design Image" class="object-contain max-w-md w-1/3" src="./img/image_2025-05-04_19-13-52.webp" />
+      <img alt="Design Image" class="object-contain max-w-md w-1/3"
+        src="./public/assets/img/image_2025-05-04_19-13-52.webp" />
       <p class="cursor-default select-none font-light text-center mt-4 sm:text-3xl text-md">
         - Your next great design begins here -
       </p>
       <p class="cursor-default select-none text-center mt-4 sm:text-3xl text-md">
-        send me a message!
+        send us message!
       </p>
     </div>
     <div class="flex justify-center w-full max-w-4xl pb-16 space-x-4">
@@ -566,8 +768,8 @@ $section = mysqli_fetch_assoc($infoResult);
           <image height="300" width="300" x="0"
             xlink:href="data:image/png;base64,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"
             y="0" />
-        </svg> </a><a href="http://www.linkedin.com/in/gohar-hosseinzadeh-nazeri"
-        class="flex items-center justify-center overflow-hidden ease-in-out relative bg-[#3f3b37] border border-transparent duration-500 hover:animate-shake hover:bg-[#d13318] magnetic rounded-full transition-[border-color,border-width] text-white"><span
+        </svg> </a><a href="#contact"
+        class=" flex items-center justify-center overflow-hidden ease-in-out relative bg-[#3f3b37] border border-transparent duration-500 hover:animate-shake hover:bg-[#d13318] magnetic rounded-full transition-[border-color,border-width] text-white"><span
           class="absolute duration-1000 transition-all bg-radial-red inset-0 opacity-0 scale-0 z-0"></span>
         <svg xmlns="http://www.w3.org/2000/svg"
           class="z-10 relative h-12 hover:brightness-75 hover:filter hover:invert hover:text-black object-contain p-3 w-12"
@@ -575,8 +777,8 @@ $section = mysqli_fetch_assoc($infoResult);
           <image height="300" width="300" x="0"
             xlink:href="data:image/png;base64,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zeg3hNmMde4RNyw3rGxKHlQ10w+PB215+G2A5Yb1AvcM/+vcjG5YWQd27hE3LDesbEoeVOWGtR00sNyw3LC256S8AlZZxMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhYvsIAFrGxWSquAlcULLGABK5uV0ipgZfECC1jAymaltApYWbzAAhawslkprQJWFi+wgAWsbFZKq4CVxQssYAErm5XSKmBl8QILWMDKZqW0ClhZvMACFrCyWSmtAlYWL7CABaxsVkqrgJXFCyxgASubldIqYGXxAgtYwMpmpbQKWFm8wAIWsLJZKa0CVhZvZ7D+A5eWgQu8TBBsAAAAAElFTkSuQmCC"
             y="0" />
-        </svg> </a><a href="https://www.instagram.com/Gohar.graphic/"
-        class="flex items-center justify-center overflow-hidden ease-in-out relative bg-[#3f3b37] border border-transparent duration-500 hover:animate-shake hover:bg-[#d13318] magnetic rounded-full transition-[border-color,border-width] text-white"><span
+        </svg> </a><a href="#contact"
+        class=" flex items-center justify-center overflow-hidden ease-in-out relative bg-[#3f3b37] border border-transparent duration-500 hover:animate-shake hover:bg-[#d13318] magnetic rounded-full transition-[border-color,border-width] text-white"><span
           class="absolute duration-1000 transition-all bg-radial-red inset-0 opacity-0 scale-0 z-0"></span>
         <svg xmlns="http://www.w3.org/2000/svg"
           class="z-10 relative h-12 hover:brightness-75 hover:filter hover:invert hover:text-black object-contain p-3 w-12"
