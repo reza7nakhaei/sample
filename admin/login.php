@@ -1,86 +1,64 @@
 <?php
 session_start();
-require_once(__DIR__ . '/../backend/db.php');
+require_once __DIR__ . '/../config/Database.php';
+require_once __DIR__ . '/../classes/User.php';
 
-
-
-$error = '';
+$db = new Database();
+$conn = $db->getConnection();
+$user = new User($conn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    $query = "SELECT id, username, password_hash FROM users WHERE username = ?";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "s", $username);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-
-    if ($user = mysqli_fetch_assoc($result)) {
-        // بررسی پسورد
-        if (password_verify($password, $user['password_hash'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            header("Location: admin_portfolio.php");
-            exit;
-        } else {
-            $error = "رمز عبور اشتباه است";
-        }
+    if ($user->login($email, $password)) {
+        $_SESSION['admin'] = $email;
+        header('Location: dashboard.php');
+        exit;
     } else {
-        $error = "کاربری با این نام وجود ندارد";
+        $error = "ایمیل یا پسورد اشتباه است!";
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>صفحه ورود | مدیریت</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود ادمین</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-6 text-center text-gray-700">ورود به پنل مدیریت</h2>
+    <div class="w-full max-w-md bg-white rounded-xl shadow-lg p-8 space-y-6">
+        <h2 class="text-2xl font-bold text-center text-gray-800">ورود ادمین</h2>
 
-        <?php if ($error): ?>
-            <div class="mb-4 text-red-600 text-center"><?php echo htmlspecialchars($error); ?></div>
+        <?php if (isset($error)): ?>
+            <p class="text-red-500 text-center"><?= $error ?></p>
         <?php endif; ?>
 
-        <form method="POST" action="" class="space-y-6">
+        <form method="post" class="space-y-5">
             <div>
-                <label for="username" class="block mb-2 font-semibold text-gray-600">نام کاربری</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                    placeholder="نام کاربری خود را وارد کنید" />
+                <label class="block text-gray-700 mb-2">ایمیل</label>
+                <input type="email" name="email" required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500">
             </div>
 
             <div>
-                <label for="password" class="block mb-2 font-semibold text-gray-600">رمز عبور</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                    placeholder="رمز عبور خود را وارد کنید" />
+                <label class="block text-gray-700 mb-2">پسورد</label>
+                <input type="password" name="password" required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500">
             </div>
 
-            <button
-                type="submit"
-                class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition-colors">
+            <button type="submit"
+                class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
                 ورود
             </button>
         </form>
+
     </div>
 
 </body>

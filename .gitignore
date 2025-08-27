@@ -1,0 +1,24 @@
+# فایل‌ها و پوشه‌های node.js
+node_modules/
+
+# پوشه‌های پکیج منیجرها
+package-lock.json
+yarn.lock
+
+# فایل‌های محیطی
+.env
+
+# فایل‌های لاگ
+*.log
+
+# پوشه‌های کش
+cache/
+tmp/
+
+# فایل‌های IDE
+.vscode/
+.idea/
+
+# فایل‌های سیستم‌عامل
+.DS_Store
+Thumbs.db

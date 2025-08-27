@@ -1,18 +1,4 @@
-<?php
 
-require_once("./backend/db.php");
-
-// سکشن اول
-$infoResult = mysqli_execute_query($conn, "  SELECT title, description FROM sections LIMIT 1");
-
-$servicesResult = mysqli_execute_query($conn, "SELECT title FROM services");
-$projectsResult = mysqli_execute_query($conn, "SELECT * FROM projects");
-
-
-
-$section = mysqli_fetch_assoc($infoResult);
-
-?>
 
 
 
@@ -697,7 +683,7 @@ $section = mysqli_fetch_assoc($infoResult);
         </div>
         <div class="z-10 relative ProjectAll pl-10">
           <span
-            class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity">Packaging</span>
+            class="z-10 relative block duration-1000 ease-out main-text px:10 sm:px-28 transition-opacity" href="./Portfolio.php?category=packaging" >Packaging</>
           <span
             class="flex items-center absolute ease-out inset-0 opacity-0 duration-1000 font-extralight justify-start project-description px:12 sm:px-28 text-xs transition-opacity z-10">
             Professional packaging protects the product and captures customer attention. Attractive design
@@ -705,6 +691,14 @@ $section = mysqli_fetch_assoc($infoResult);
           </span>
         </div>
       </div>
+      
+     <a href="./Portfolio.php?category=logo">Logo</a><br>
+<a href="./Portfolio.php?category=social-media">Social media</a><br>
+<a href="./Portfolio.php?category=banner">Banner and Billboard</a><br>
+<a href="./Portfolio.php?category=ui-ux">Ui / UX design</a><br>
+<a href="./Portfolio.php?category=office-set">Office set</a><br>
+<a href="./Portfolio.php?category=poster">Poster</a><br>
+<a href="./Portfolio.php?category=packaging">Packaging</a><br>
 
     </div>
   </section>
