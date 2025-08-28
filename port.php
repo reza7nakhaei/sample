@@ -1,16 +1,18 @@
 <?php
-$activeCategory = $_GET['category'] ?? 'logo';
+// مسیر صحیح فایل Database.php نسبت به محل این فایل
+require_once __DIR__ . '/config/Database.php';
 
-// شبیه سازی اطلاعاتی که از پنل ذخیره شده
-$portfolioItems = [
-    ['category'=>'logo', 'src'=>'./uploads/logo1.webp', 'title'=>'لوگوی شرکت X'],
-    ['category'=>'logo', 'src'=>'./uploads/logo2.webp', 'title'=>'لوگوی برند Y'],
-    ['category'=>'social-media', 'src'=>'./uploads/social1.webp', 'title'=>'پیج اینستاگرام Z'],
-    ['category'=>'banner', 'src'=>'./uploads/banner1.webp', 'title'=>'بیلبورد تابستانه'],
-];
+// اتصال به دیتابیس
+$db = (new Database())->getConnection();
 
-// فیلتر آیتم‌های دسته انتخاب شده
-$activeItems = array_filter($portfolioItems, fn($item) => $item['category'] === $activeCategory);
+// دسته فعال (تب انتخاب شده)
+$activeCategory = $_GET['category'] ?? 1; // پیشفرض category_id = 1
+
+// گرفتن نمونه کارهای دسته انتخاب شده
+$stmt = $db->prepare("SELECT * FROM portfolios WHERE category_id = :category_id");
+$stmt->bindParam(":category_id", $activeCategory, PDO::PARAM_INT);
+$stmt->execute();
+$activeItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -39,19 +41,23 @@ header { display:flex; justify-content: space-between; align-items:center; paddi
 <header>
     <div>نمونه کارها</div>
     <div>
-        <button class="tab-btn <?= $activeCategory==='logo'?'active':''?>" data-category="logo">Logo</button>
-        <button class="tab-btn <?= $activeCategory==='social-media'?'active':''?>" data-category="social-media">Social media</button>
-        <button class="tab-btn <?= $activeCategory==='banner'?'active':''?>" data-category="banner">Banner</button>
+        <button class="tab-btn <?= $activeCategory==1?'active':''?>" data-category="1">Logo</button>
+        <button class="tab-btn <?= $activeCategory==2?'active':''?>" data-category="2">Social media</button>
+        <button class="tab-btn <?= $activeCategory==3?'active':''?>" data-category="3">Banner</button>
     </div>
 </header>
 
 <main style="padding:1rem; max-width:900px; margin:auto;">
-<?php foreach($activeItems as $item): ?>
-<div class="gallery-item" data-title="<?= $item['title'] ?>">
-    <img src="<?= $item['src'] ?>" alt="<?= $item['title'] ?>" class="lightbox-img">
-    <div class="overlay"><?= $item['title'] ?></div>
-</div>
-<?php endforeach; ?>
+<?php if(count($activeItems) > 0): ?>
+    <?php foreach($activeItems as $item): ?>
+    <div class="gallery-item" data-title="<?= htmlspecialchars($item['title']) ?>">
+        <img src="./uploads/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['title']) ?>" class="lightbox-img">
+        <div class="overlay"><?= htmlspecialchars($item['title']) ?></div>
+    </div>
+    <?php endforeach; ?>
+<?php else: ?>
+    <p>هیچ نمونه کاری در این دسته موجود نیست.</p>
+<?php endif; ?>
 </main>
 
 <div id="lightbox">
@@ -79,7 +85,6 @@ const closeBtn = document.getElementById('lightbox-close');
 document.querySelectorAll('.lightbox-img').forEach(img=>{
     img.addEventListener('click', ()=>{
         lightboxImg.src = img.src;
-        lightboxImg.alt = img.dataset.title;
         lightbox.style.display = 'flex';
     });
 });
