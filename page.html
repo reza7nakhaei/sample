@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+
+
 <meta content="width=device-width,initial-scale=1" name="viewport" />
 <title>
   gohar hossein zadeh . dubai</title>
@@ -10,9 +13,36 @@
 <script src="./sections/global.js" type="module"></script>
 
 <body class="uppercase bg-[#fcfcf3] font-oswald text-[3f3b37]" data-section="home">
-  <!--  سلام اول سایت -->
+  <!-- سلام اول سایت -->
   <div id="splash">
     <p id="greeting"></p>
+
+    <!-- 🎵 موزیک اسپلش -->
+    <audio id="splash-audio"
+      src="./public/assets/audio/آرمان گرشاسبی-عمری به هر کوی و گذر گشتم که پیدایت کنم-musicDel-320.mp3" autoplay
+      muted></audio>
+    <!-- 🔊 دکمه پخش صدا (نمایش فقط در صورت نیاز) -->
+    <button id="unmute-btn" style="
+position: absolute;
+bottom: 20px;
+right: 20px;
+background: rgba(255,255,255,0.2);
+border: none;
+backdrop-filter: blur(6px);
+border-radius: 50%;
+width: 42px;
+height: 42px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+transition: all 0.3s ease;
+display: none; /* پیش‌فرض مخفی */
+">
+      🔊
+    </button>
+
   </div>
 
   <!-- صفحه اول سایت  -->
