@@ -626,10 +626,6 @@ video {
   left: 65%;
 }
 
-.right-0 {
-  right: 0px;
-}
-
 .right-4 {
   right: 1rem;
 }
@@ -646,16 +642,16 @@ video {
   top: 50%;
 }
 
-.top-12 {
-  top: 3rem;
-}
-
 .top-4 {
   top: 1rem;
 }
 
 .top-6 {
   top: 1.5rem;
+}
+
+.top-8 {
+  top: 2rem;
 }
 
 .top-\[19\%\] {
@@ -1308,6 +1304,14 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+<<<<<<< HEAD
+=======
+.bg-yellow-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity, 1));
+}
+
+>>>>>>> 9df97d5 (save local changes)
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1496,10 +1500,6 @@ video {
 
 .text-center {
   text-align: center;
-}
-
-.text-right {
-  text-align: right;
 }
 
 .font-oswald {
